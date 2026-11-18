@@ -15,7 +15,7 @@ int main() {
     calibrateSensors();
     robotTimer.clear();
 
-    touchSensor.on(red);
+    touchSensor.on(red);    
     Brain.Screen.clearScreen();
     Brain.Screen.setCursor(1, 1);
     Brain.Screen.print("Load all eggs into the capsule and press the button to start cracking!");
@@ -37,7 +37,7 @@ int main() {
         if (checkCapsuleState()) {
             moveTopMotor(-90);
             crackEggKen();
-            updateEggCount(eggCount);
+            eggCount -= 1;
             dropEgg();
         }
 

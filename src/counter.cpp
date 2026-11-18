@@ -10,12 +10,6 @@ void countEggs(int& eggCount) {
     eggCount++;
 }
 
-// Function to update the egg count after an egg has been cracked
-void updateEggCount(int& eggCount) {
-    eggCount -= 1; // Decrement the egg count by 1
-}
-
-
 // Function to check if all eggs have been cracked
 bool allEggsCracked(int eggCount) {
 

@@ -7,6 +7,6 @@ using namespace vex;
 
 const double ROBOT_INTERVAL = 0.5; // Time interval for robot operations in seconds
 
-touchled touchSensor(PORT5);
+touchled touchSensor(PORT12);
 timer robotTimer;
 
