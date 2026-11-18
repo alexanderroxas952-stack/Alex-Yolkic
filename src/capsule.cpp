@@ -3,14 +3,14 @@
 
 bool checkCapsuleState() {
 
-    feederSensor.setLight(ledState::on);
-    feederTimer.clear();
+    capsuleOptical.setLight(ledState::on);
+    capsuleTimer.clear();
     
-    while (feederTimer.time(seconds) < FEEDER_INTERVAL*5) { // checks for 10 seconds if the capsule is empty or not
+    while (capsuleTimer.time(seconds) < CAPSULE_INTERVAL*5) { // checks for 10 seconds if the capsule is empty or not
         Brain.Screen.clearScreen();
         Brain.Screen.setCursor(1, 1);
         
-        if (feederSensor.hue() <= 20 || feederSensor.hue() >= 5) { // checks if the color detected is white (hue value between 20 and 340)
+        if (capsuleOptical.hue() <= 20 || capsuleOptical.hue() >= 5) { // checks if the color detected is white (hue value between 20 and 340)
             Brain.Screen.print("Object detected!");
             return true; // Egg detected, capsule is not empty
 

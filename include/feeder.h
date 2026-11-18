@@ -7,4 +7,3 @@ using namespace vex;
 const double FEEDER_INTERVAL = 0.25;
 timer feederTimer;
 motor feederMotor(PORT3, true);
-optical feederSensor(PORT4);
