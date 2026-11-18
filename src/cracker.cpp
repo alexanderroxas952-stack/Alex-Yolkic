@@ -30,7 +30,7 @@ crackerMotor.stop(brake);
 float movedDistance = crackerMotor.position(degrees);
 float distanceNeeded = 360 - movedDistance;
 
-crackerMotor.spin(forward, 25, percent);
+crackerMotor.spin(reverse, 25, percent);
 
 while (crackerMotor.position(degrees) < distanceNeeded){}
 

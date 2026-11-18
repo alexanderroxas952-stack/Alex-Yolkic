@@ -3,6 +3,7 @@
 #include "cracker.h"
 #include "feeder.h"
 #include "capsule.h"
+#include "counter.h"
 
 int main() {
     // Initial calibration
