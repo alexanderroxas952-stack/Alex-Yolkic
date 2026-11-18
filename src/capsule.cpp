@@ -30,11 +30,11 @@ bool checkCapsuleState() {
 void moveTopMotor(float angle){
   capsuleTopMotor.resetPosition();
   if (angle < 0){
-    capsuleTopMotor.spin(reverse, 10, percent);
+    capsuleTopMotor.spin(reverse, 5, percent);
     while (capsuleTopMotor.position(degrees) > angle){}
     capsuleTopMotor.stop(brake);
   } else{
-    capsuleTopMotor.spin(forward, 10, percent);
+    capsuleTopMotor.spin(forward, 5, percent);
     while(capsuleTopMotor.position(degrees) < angle){}
     capsuleTopMotor.stop(brake);
   }
@@ -43,11 +43,11 @@ void moveTopMotor(float angle){
 void moveBottomMotor(float angle){
   capsuleBottomMotor.resetPosition();
   if (angle  < 0){
-    capsuleBottomMotor.spin(reverse, 10, percent);
+    capsuleBottomMotor.spin(reverse, 5, percent);
     while (capsuleBottomMotor.position(degrees) > angle){}
     capsuleBottomMotor.stop(brake);
   } else{
-    capsuleBottomMotor.spin(forward, 10, percent);
+    capsuleBottomMotor.spin(forward, 5, percent);
     while(capsuleBottomMotor.position(degrees) < angle){}
     capsuleBottomMotor.stop(brake);
   }
