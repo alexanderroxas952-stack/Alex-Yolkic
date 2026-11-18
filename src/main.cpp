@@ -6,23 +6,47 @@
 #include "counter.h"
 
 int main() {
+    
+    while (!Brain.buttonCheck.pressing()) {} // Waitting for the user to press the button to start the program
+    while (Brain.buttonCheck.pressing()) {}
+
     // Initial calibration
+    int eggCount = 0;
     calibrateSensors();
     robotTimer.clear();
-    
-    while (!touchSensor.pressing()) {}
+
+    touchSensor.on(red);
+    Brain.Screen.clearScreen();
+    Brain.Screen.setCursor(1, 1);
+    Brain.Screen.print("Load all eggs into the capsule and press the button to start cracking!");
+    countEggs(eggCount);
+
+
+    while (!touchSensor.pressing()) {} // Wait for the touch sensor to be released before starting the main loop
     while (touchSensor.pressing()) {}
 
-    // open feeder and move capsule at the same time
-    moveTopMotor(90);
-    openFeeder();
-    closeFeeder();
-    if (checkCapsuleState()) {
-        prepareCapsule();
+    touchSensor.on(green);
+
+    while (!eStopActivated() && allEggsCracked(eggCount)) { // Main loop continues until emergency stop is activated or all eggs are cracked
+
+        // open feeder and move capsule at the same time
+        moveTopMotor(90);
+        openFeeder();
+        closeFeeder();
+
+        if (checkCapsuleState()) {
+            moveTopMotor(-90);
+            crackEggKen();
+            updateEggCount(eggCount);
+            dropEgg();
+        }
+
     }
 
-    while (robotTimer.time(seconds) < ROBOT_INTERVAL*30) {}
-
+    touchSensor.off();
+    Brain.Screen.clearScreen();
+    Brain.Screen.setCursor(1, 1);
+    Brain.Screen.print("Program stopped.");
     Brain.programStop();
 
 }

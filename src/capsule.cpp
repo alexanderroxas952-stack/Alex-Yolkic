@@ -53,6 +53,14 @@ void moveBottomMotor(float angle){
   }
 }
 
-// Reset capsule motors (reset to base position)
-void resetCapsuleMotors() {
+void dropEgg() {
+
+    moveBottomMotor(-90);
+    capsuleTimer.clear();
+
+    while (capsuleTimer.time(seconds) <= CAPSULE_INTERVAL) {}
+
+    moveBottomMotor(90);
+    capsuleTimer.clear();
+
 }

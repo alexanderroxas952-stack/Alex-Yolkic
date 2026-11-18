@@ -8,13 +8,23 @@ void calibrateSensors() {
     BrainInertial.resetRotation();
 }
 
-// Write a function to turn robot on
-/*void turnRobotOn() {
-    // Implementation for turning the robot on
+bool eStopActivated() {
+    // Implementation for checking if the emergency stop is activated
+
+    robotTimer.clear();
+
+    while (robotTimer.time(seconds) < ROBOT_INTERVAL/5) { // checks for 0.1 second if the emergency stop is activated
+
+        while (!touchSensor.pressing()) {}
+        while (touchSensor.pressing()) {}
+            
+        Brain.Screen.clearScreen();
+        Brain.Screen.setCursor(1, 1);
+        Brain.Screen.print("Emergency Stop Activated!");
+        return true;
+        
+    }
+
+    return false;
 }
 
-// Write a function to turn robot off
-void turnRobotOff() {
-    // Implementation for turning the robot off
-}
-*/
