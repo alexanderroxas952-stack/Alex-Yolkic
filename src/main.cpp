@@ -17,10 +17,12 @@ int main() {
     Brain.Screen.clearScreen();
     Brain.Screen.setCursor(1, 1);
     Brain.Screen.print("Load all eggs into the capsule and press the button to start cracking!");
-    countEggs(eggCount);
 
 
-    while (!touchSensor.pressing()) {} // Wait for the touch sensor to be released before starting the main loop
+    while (!touchSensor.pressing()) {
+        countEggs(eggCount);
+      wait(0.5, seconds);
+    } // Wait for the touch sensor to be released before starting the main loop
     while (touchSensor.pressing()) {}
 
     touchSensor.on(green);
