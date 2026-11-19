@@ -35,7 +35,7 @@ int main() {
 
         if (checkCapsuleState()) {
             moveTopMotor(-90);
-            crackEggKen();
+            crackEgg();
             eggCount -= 1;
             dropEgg();
         }
