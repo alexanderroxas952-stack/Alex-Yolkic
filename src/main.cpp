@@ -13,7 +13,6 @@ int main() {
     // Initial calibration
     int eggCount = 0;
     calibrateSensors();
-    robotTimer.clear();
    
     Brain.Screen.clearScreen();
     Brain.Screen.setCursor(1, 1);
