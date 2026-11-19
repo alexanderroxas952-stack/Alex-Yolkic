@@ -26,7 +26,7 @@ int main() {
 
     touchSensor.on(green);
 
-    while (!eStopActivated() && allEggsCracked(eggCount)) { // Main loop continues until emergency stop is activated or all eggs are cracked
+    while (!eStopActivated() && !allEggsCracked(eggCount)) { // Main loop continues until emergency stop is activated or all eggs are cracked
 
         // open feeder and move capsule at the same time
         moveTopMotor(90);
