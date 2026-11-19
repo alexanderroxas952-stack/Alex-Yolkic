@@ -1,11 +1,13 @@
 #include "vex.h"
 #include "counter.h"
 
-// Function to count the number of eggs
+// Function to count the number of eggs (FAULTY, PLEASE REWRITE)
 void countEggs(int& eggCount) {
 
     while (counterBumper.pressing()) {}
     while (!counterBumper.pressing()) {}
+
+    Brain.Screen.print("%d", eggCount);
 
     eggCount++;
 }
