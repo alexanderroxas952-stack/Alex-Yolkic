@@ -10,7 +10,7 @@ void crackEgg() {
     while (crackerMotor.position(degrees) <= 180) {}
 
     crackerMotor.stop();
-    crackerMotor.spin(reverse, 25, percent);
+    crackerMotor.spin(reverse, 15, percent);
 
     while (crackerMotor.position(degrees) >= 0) {}
 
