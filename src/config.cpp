@@ -13,7 +13,7 @@ bool eStopActivated() {
 
     robotTimer.clear();
 
-    while (robotTimer.time(seconds) < ROBOT_INTERVAL*(1/5)) { // checks for 0.1 second if the emergency stop is activated
+    while (robotTimer.time(seconds) < ROBOT_INTERVAL/5.0) { // checks for 0.1 second if the emergency stop is activated
 
         while (!touchSensor.pressing()) {}
         while (touchSensor.pressing()) {}
