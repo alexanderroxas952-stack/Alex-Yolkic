@@ -9,9 +9,9 @@ void closeFeeder() {
 
     while (feederTimer.time(seconds) <= FEEDER_INTERVAL) {} // waits one seconds before starting the feeder motor
 
-    feederMotor.spin(reverse, 25, percent);
+    feederMotor.spin(reverse, 15, percent);
 
-    while (feederMotor.position(degrees) >= -100) {}
+    while (feederMotor.position(degrees) >= -90) {}
 
     feederMotor.stop(brake);
 
