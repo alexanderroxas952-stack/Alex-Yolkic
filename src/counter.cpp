@@ -5,9 +5,12 @@
 void countEggs(int& eggCount) {
 
     while (!counterBumper.pressing()) {}
-    eggCount += 1;
+    eggCount++;
     while (counterBumper.pressing()) {}
 
+    Brain.Screen.clearScreen();
+    Brain.Screen.setCursor(1, 1);
+    Brain.Screen.print("Eggs counted: ");
     Brain.Screen.print("%d", eggCount);
 }
 
